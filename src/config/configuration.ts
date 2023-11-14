@@ -3,9 +3,6 @@ export default () => ({
     host: process.env.HOST,
     port: process.env.PORT,
   },
-  encryption: {
-    jwt_secret: process.env.JWT_SECRET,
-  },
   rmq: {
     url: process.env.RMQ_URL,
     queue: 'mails',

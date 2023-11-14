@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    mail-service:
+        container_name: mail_service
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        environment:
+        - HOST=${HOST:-127.0.0.1}
+        - PORT=${PORT:-3001}
+        - RMQ_URL=${RMQ_URL:-amqp://rabbitmq:5672}
+        - CLIENT_ID=${CLIENT_ID:-651902678159-g773r9vrv0fepfddapttvti3khkbj0h2.apps.googleusercontent.com}
+        - CLIENT_SECRET=${CLIENT_SECRET:-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}
+        - REFRESH_TOKEN=${CLIENT_ID:-1//04PZG0CgOtMinCgYIARAAGAQSNwF-L9IrZHRqp47GZGsXb8uccLg0jPgTxrQWDecj6ipp2CpDGkitAv2LJwkjA0YHUCJbusknk5E}
+        - EMAIL=${EMAIL:-mostafadarvishi@gmail.com}
+        command: npm run start
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        restart: always
+
